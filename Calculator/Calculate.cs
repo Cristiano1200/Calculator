@@ -12,9 +12,11 @@ namespace Calculator
         {
             float show = 0;
             List<String> elem = Split(_in);
-            for (int i = 1; i < elem.Count; i += 2)
+            while (elem.Count!=1)
             {
-                elem[2] = 5.ToString();
+                
+                //cursor on elem1 or elem3
+                // always calculate elem0 and elem2 with operator 1
             }
             
             return show.ToString();
@@ -25,6 +27,7 @@ namespace Calculator
             List<String> show = new List<string>();
             String temp = "";
             temp += _in[0].ToString();
+
             for (int i = 1; i < _in.Length; i++)
             {
                 Char let = _in[i];
