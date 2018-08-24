@@ -54,7 +54,7 @@
             this.textin.Name = "textin";
             this.textin.Size = new System.Drawing.Size(172, 20);
             this.textin.TabIndex = 0;
-            this.textin.Text = "-5+4-4/2*3";
+            this.textin.Text = "5*(3-2)";
             // 
             // groupBox2
             // 

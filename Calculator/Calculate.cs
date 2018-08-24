@@ -10,16 +10,23 @@ namespace Calculator
     {
         public static String Calc(String _in)
         {
-            float show = 0;
+            string show;
             List<String> elem = Split(_in);
-            int cursor = 1;
-            while (elem.Count!=1)
+            while (elem.Count>3)
             {
-                //cursor on elem1 or elem3
-                // always calculate elem0 and elem2 with operator 1
+                if (new []{"*","/" }.Contains(elem[3]))
+                {
+                    elem[4] = Op(elem[2], elem[3], elem[4]);
+                    elem.RemoveRange(2, 2);
+                }
+                else
+                {
+                    elem[2] = Op(elem[0], elem[1], elem[2]);
+                    elem.RemoveRange(0, 2);
+                }
             }
-            
-            return show.ToString();
+            show = Op(elem[0], elem[1], elem[2]);
+            return show;
         }
 
         
@@ -52,10 +59,10 @@ namespace Calculator
             return show;
         }
 
-        public static String Show(List<String> _out)
+        public static String Show(String _out)
         {
             String show = "";
-            foreach (String st in _out)
+            foreach (String st in Split(_out))
             {
                 show += (st + " ");
             }
