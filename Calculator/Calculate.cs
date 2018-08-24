@@ -34,19 +34,40 @@ namespace Calculator
         {
             List<String> show = new List<string>();
             String temp = "";
-            temp += _in[0].ToString();
+            int i = 0;
+            if(_in[0] == '-')
+            {
+                temp += _in[0].ToString();
+                i = 1;
+            }
+            
 
-            for (int i = 1; i < _in.Length; i++)
+            for (; i < _in.Length; i++)
             {
                 Char let = _in[i];
-                if (Char.IsDigit(let))
+                if (Char.IsDigit(let) || let == '.')
                 {
                     temp += let;
                 }
                 else if(let == '(')
                 {
-                    temp = Calc(_in.Substring(i+1, _in.LastIndexOf(')') - i));
-                    i = _in.LastIndexOf(')');
+                    int open = 1;
+                    int close = 0;
+                    int closeP = 0;
+                    for (int j = i+1; j <= _in.LastIndexOf(')'); j++)
+                    {
+                        if (_in[j] == ')') close++;
+                        if (_in[j] == '(') open++;
+                        if(open == close)
+                        {
+                            closeP = j;
+                            break;
+                        }
+                    }
+
+                    //2 perechi de paranteze una dupa alta (5+5)*(5+5) bug
+                    temp = Calc(_in.Substring(i+1, closeP - i-1));
+                    i = closeP;
                 }
                 else
                 {
