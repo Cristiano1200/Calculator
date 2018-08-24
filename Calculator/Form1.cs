@@ -19,7 +19,11 @@ namespace Calculator
 
         private void Run_Click(object sender, EventArgs e)
         {
-            Log.Text = Calculate.Show(Calculate.Split(textin.Text));
+            string bb = "2";
+            Log.Text += (Calculate.Op("5", "+", "-2") + "\r\n");
+            Log.Text += (Calculate.Op("5", "-", "-2") + "\r\n");
+            Log.Text += (Calculate.Op("5", "*", "-2") + "\r\n");
+            Log.Text += (Calculate.Op("5", "/", "-2") + "\r\n");
         }
     }
 }

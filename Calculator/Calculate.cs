@@ -12,9 +12,9 @@ namespace Calculator
         {
             float show = 0;
             List<String> elem = Split(_in);
+            int cursor = 1;
             while (elem.Count!=1)
             {
-                
                 //cursor on elem1 or elem3
                 // always calculate elem0 and elem2 with operator 1
             }
@@ -22,6 +22,7 @@ namespace Calculator
             return show.ToString();
         }
 
+        
         public static List<String> Split(String _in)
         {
             List<String> show = new List<string>();
@@ -59,6 +60,30 @@ namespace Calculator
                 show += (st + " ");
             }
             return show;
+        }
+
+        public static String Op(String n1, String si, String n2)
+        {
+            float m1 = float.Parse(n1);
+            float m2 = float.Parse(n2);
+            float _out = 0;
+            switch (si)
+            {
+                case "+":
+                    _out = m1 + m2;
+                    break;
+                case "-":
+                    _out = m1 - m2;
+                    break;
+                case "*":
+                    _out = m1 * m2;
+                    break;
+                case "/":
+                    _out = m1 / m2;
+                    break;
+            }
+            n2 = _out.ToString();
+            return n2;
         }
 
     }
