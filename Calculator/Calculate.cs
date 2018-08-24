@@ -14,7 +14,7 @@ namespace Calculator
             List<String> elem = Split(_in);
             while (elem.Count>3)
             {
-                if (new []{"*","/" }.Contains(elem[3]))
+                if (new []{"*","/" }.Contains(elem[3]) && !(new[] { "*", "/" }.Contains(elem[1])))
                 {
                     elem[4] = Op(elem[2], elem[3], elem[4]);
                     elem.RemoveRange(2, 2);
